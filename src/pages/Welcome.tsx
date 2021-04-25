@@ -6,25 +6,29 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import colors from "../styles/colors";
-import { Button } from "../components/Button";
+import { Feather } from "@expo/vector-icons";
 
 //import wateringImg from '../assets';
 //SafeAreaView funciona com iOS
 const wateringImg = require("../assets/watering.png");
+
 export function Welcome() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
         Manage {"\n"} your plants {"\n"}easily!
       </Text>
-      <Image style={styles.image} source={wateringImg} />
+      <Image style={styles.image} resizeMode="contain" source={wateringImg} />
       <Text style={styles.subtitle}>
         Don't forget to water your plants anymore. We take care to remind you
         whenever you need it.
       </Text>
-      <Button title="Go" />
+      <TouchableOpacity style={styles.button}>
+        <Feather name="chevron-right" style={styles.buttonIcon} />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
   title: {
     fontSize: 32,
@@ -49,7 +53,19 @@ const styles = StyleSheet.create({
     color: colors.heading,
   },
   image: {
-    width: 292,
-    height: 284,
+    height: Dimensions.get("window").width * 0.7,
+  },
+  button: {
+    backgroundColor: colors.green,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 16,
+    marginBottom: 10,
+    height: 56,
+    width: 56,
+  },
+  buttonIcon: {
+    color: colors.white,
+    fontSize: 24,
   },
 });
