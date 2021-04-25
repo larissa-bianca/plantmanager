@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import AppLoading from "expo-app-loading";
-import { Welcome } from "./src/pages/Welcome";
+import { UserId } from "./src/pages/UserId";
 import {
   useFonts,
   Jost_400Regular,
@@ -14,8 +14,8 @@ export default function App() {
     Jost_600SemiBold,
   });
 
-  if (fontsLoaded)
-    // return <AppLoading/>
+  //if (fontsLoaded)
+  // return <AppLoading/>
 
-    return <Welcome />;
+  return <UserId />;
 }
